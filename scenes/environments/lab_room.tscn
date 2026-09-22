@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://ct2w0l2ajftqf"]
+
+[ext_resource type="PackedScene" uid="uid://5qvvnqpl2ofo" path="res://assets/models/environments/lab_room.glb" id="1_e6qkk"]
+
+[node name="LabRoom" type="Node3D" unique_id=1677231532]
+
+[node name="lab_room" parent="." unique_id=1731174843 instance=ExtResource("1_e6qkk")]
+
+[node name="pc_monitor_screen" parent="lab_room/pc_monitor_body" parent_id_path=PackedInt32Array(1731174843, 1255493011) index="0" unique_id=1271835159]
+instance_shader_parameters/custom_glare_color = Color(0.4, 0.75, 1, 0.6)
+instance_shader_parameters/expand_size = 0.138000006555
+instance_shader_parameters/flip_normal = false
+instance_shader_parameters/randomness = 0.3
+instance_shader_parameters/use_flat_mesh = false
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2027218002]
+transform = Transform3D(0.87435186, -0.056036346, 0.48204643, -0.0070357313, 0.9917429, 0.12804857, -0.4852415, -0.11535106, 0.8667381, -1.009415, 2.6695771, 5.9259834)
+current = true
+fov = 45.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=939329374]
+transform = Transform3D(0.59902364, 0.40036568, -0.69345367, 0, 0.8660254, 0.5, 0.80073136, -0.29951182, 0.5187697, -15.985, 3.309, 0)
+light_color = Color(0.54901963, 0.78039217, 0.9607843, 1)
+shadow_enabled = true
+shadow_blur = 0.0
+
+[editable path="lab_room"]

@@ -1,0 +1,23 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bgnb47sqhs4nt"]
+
+[ext_resource type="Shader" uid="uid://btd2nlkp3lv5j" path="res://shaders/glare_shell.gdshader" id="1_4vsda"]
+[ext_resource type="Shader" uid="uid://dhmrmm4hreths" path="res://shaders/toon_emit.gdshader" id="1_fjjsd"]
+[ext_resource type="Texture2D" uid="uid://c5mqwa1usgwyh" path="res://assets/textures/palettes/color_pallet_32x_001.png" id="2_4vsda"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cim1b"]
+render_priority = 0
+shader = ExtResource("1_4vsda")
+
+[resource]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_cim1b")
+shader = ExtResource("1_fjjsd")
+shader_parameter/base_color = Color(1, 1, 1, 1)
+shader_parameter/main_texture = ExtResource("2_4vsda")
+shader_parameter/shadow_threshold = 0.45
+shader_parameter/shadow_softness = 0.02
+shader_parameter/emission_energy = 1.8
+shader_parameter/flicker_speed = 3.0
+shader_parameter/min_flicker = 0.85
+shader_parameter/max_flicker = 1.0
+shader_parameter/randomness = 0.2

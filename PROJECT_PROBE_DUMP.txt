@@ -1,0 +1,409 @@
+========================================
+# PROJECT PROBE ADVANCED REPORT (EditorScript)
+# Generated: 2026-09-22T08:16:55
+# Godot Version: 4.6-stable (official)
+# OS: Windows
+========================================
+
+## 1. AUTOLOADS (SINGLETONS)
+No Autoloads registered.
+
+
+## 2. PROJECT CONFIGURATION (project.godot)
+```ini
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="wonderful_world"
+config/features=PackedStringArray("4.6", "Mobile")
+config/icon="res://icon.svg"
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
+renderer/rendering_method="mobile"
+
+[shader_globals]
+
+global_shadow_tint={
+"type": "color",
+"value": Color(0.3716567, 0.31506953, 0.44035134, 1)
+}
+
+```
+
+## 3. ACTIVE SCENE HIERARCHY (Editor Open Scene)
+```text
+   - lab_room (Node3D) [Script: No Script]
+     - chair_pc (MeshInstance3D) [Script: No Script]
+       - StaticBody3D (StaticBody3D) [Script: No Script]
+         - CollisionShape3D (CollisionShape3D) [Script: No Script]
+     - char_test_sit_001 (MeshInstance3D) [Script: No Script]
+       - StaticBody3D (StaticBody3D) [Script: No Script]
+         - CollisionShape3D (CollisionShape3D) [Script: No Script]
+     - char_test_stand_001 (MeshInstance3D) [Script: No Script]
+       - StaticBody3D (StaticBody3D) [Script: No Script]
+         - CollisionShape3D (CollisionShape3D) [Script: No Script]
+     - desk (MeshInstance3D) [Script: No Script]
+       - StaticBody3D (StaticBody3D) [Script: No Script]
+         - CollisionShape3D (CollisionShape3D) [Script: No Script]
+     - floor (MeshInstance3D) [Script: No Script]
+       - StaticBody3D (StaticBody3D) [Script: No Script]
+         - CollisionShape3D (CollisionShape3D) [Script: No Script]
+     - mug_cup_dr (MeshInstance3D) [Script: No Script]
+     - pc_keybord (MeshInstance3D) [Script: No Script]
+     - pc_monitor_body (MeshInstance3D) [Script: No Script]
+       - pc_monitor_screen (MeshInstance3D) [Script: No Script]
+       - StaticBody3D (StaticBody3D) [Script: No Script]
+         - CollisionShape3D (CollisionShape3D) [Script: No Script]
+     - pc_mouse (MeshInstance3D) [Script: No Script]
+     - photo_frames__000 (MeshInstance3D) [Script: No Script]
+     - photo_frames__001 (MeshInstance3D) [Script: No Script]
+     - photo_frames__002 (MeshInstance3D) [Script: No Script]
+     - photo_frames__003 (MeshInstance3D) [Script: No Script]
+     - photo_frames__004 (MeshInstance3D) [Script: No Script]
+     - photo_frames__005 (MeshInstance3D) [Script: No Script]
+     - photo_frames__006 (MeshInstance3D) [Script: No Script]
+     - photo_frames__007 (MeshInstance3D) [Script: No Script]
+     - photo_frames__008 (MeshInstance3D) [Script: No Script]
+     - photo_frames__009 (MeshInstance3D) [Script: No Script]
+     - photo_frames__010 (MeshInstance3D) [Script: No Script]
+     - photo_frames__011 (MeshInstance3D) [Script: No Script]
+     - photo_frames__012 (MeshInstance3D) [Script: No Script]
+     - photo_frames__013 (MeshInstance3D) [Script: No Script]
+     - roof (MeshInstance3D) [Script: No Script]
+       - StaticBody3D (StaticBody3D) [Script: No Script]
+         - CollisionShape3D (CollisionShape3D) [Script: No Script]
+     - wall (MeshInstance3D) [Script: No Script]
+       - window_b (MeshInstance3D) [Script: No Script]
+         - StaticBody3D (StaticBody3D) [Script: No Script]
+           - CollisionShape3D (CollisionShape3D) [Script: No Script]
+       - StaticBody3D (StaticBody3D) [Script: No Script]
+         - CollisionShape3D (CollisionShape3D) [Script: No Script]
+     - wall_front (StaticBody3D) [Script: No Script]
+       - CollisionShape3D (CollisionShape3D) [Script: No Script]
+     - window_a (MeshInstance3D) [Script: No Script]
+       - StaticBody3D (StaticBody3D) [Script: No Script]
+         - CollisionShape3D (CollisionShape3D) [Script: No Script]
+```
+
+## 4. LOCAL FILE SYSTEM & CODES
+
+[DIR] res://assets/
+
+[DIR] res://assets/audio/
+
+[DIR] res://assets/audio/bgm/
+
+[DIR] res://assets/audio/sfx/
+
+[DIR] res://assets/fonts/
+
+[DIR] res://assets/models/
+
+[DIR] res://assets/models/characters/
+
+[DIR] res://assets/models/environments/
+
+[DIR] res://assets/models/props/
+
+[DIR] res://assets/textures/
+
+[DIR] res://assets/textures/palettes/
+
+[DIR] res://assets/textures/ui/
+  [File] create_project_structure.gd (1334 bytes)
+  |-- CONTENT START: res://create_project_structure.gd --
+@tool
+extends EditorScript
+
+# 生成するフォルダ一覧
+const FOLDERS: Array[String] = [
+	"res://assets/models/environments",
+	"res://assets/models/characters",
+	"res://assets/models/props",
+	"res://assets/textures/palettes",
+	"res://assets/textures/ui",
+	"res://assets/audio/bgm",
+	"res://assets/audio/sfx",
+	"res://assets/fonts",
+	"res://shaders",
+	"res://materials/environments",
+	"res://materials/characters",
+	"res://scenes/environments",
+	"res://scenes/characters",
+	"res://scenes/smart_objects",
+	"res://scenes/ui",
+	"res://scripts/autoload",
+	"res://scripts/npc",
+	"res://scripts/smart_objects",
+	"res://scripts/utils"
+]
+
+func _run() -> void:
+	print("========================================")
+	print("  Starting Project Folder Generation... ")
+	print("========================================")
+	
+	for folder in FOLDERS:
+		if not DirAccess.dir_exists_absolute(folder):
+			var error := DirAccess.make_dir_recursive_absolute(folder)
+			if error == OK:
+				print("[CREATED] ", folder)
+			else:
+				printerr("[FAILED]  ", folder, " (Error: ", error, ")")
+		else:
+			print("[EXISTS]  ", folder)
+			
+	# GodotのFileSystem Dockを即座に再スキャンして画面に反映
+	EditorInterface.get_resource_filesystem().scan()
+	
+	print("========================================")
+	print("  Folder Structure Initialized Cleanly! ")
+	print("========================================")
+  |-- CONTENT END --------------------
+
+[DIR] res://materials/
+
+[DIR] res://materials/characters/
+
+[DIR] res://materials/environments/
+  [File] project_probe_generic.gd (5353 bytes)
+  |-- CONTENT START: res://project_probe_generic.gd --
+@tool
+extends EditorScript
+
+# ==========================================================
+# GODOT 4 UNIVERSAL PROJECT PROBE (EditorScript)
+# あらゆるGodot 4プロジェクトの完全ダンプ・解析プローブ
+# [Ctrl + Shift + X] で実行 ➜ 自動でクリップボードに全コピー
+# ==========================================================
+
+const OUTPUT_FILE = "res://PROJECT_PROBE_DUMP.txt"
+
+# スキャン対象の拡張子（必要に応じて "tres", "gdshader" 等も追加可能）
+const TARGET_EXTENSIONS = ["gd", "json", "cfg", "tscn", "gdshader"]
+# スキャンから除外するディレクトリ
+const EXCLUDE_DIRS = [".godot", ".import"]
+
+var _report: String = ""
+
+func _run() -> void:
+	print_rich("[color=cyan]==================================================[/color]")
+	print_rich("[color=cyan]  [PROJECT PROBE] プロジェクト全景解析を開始します...[/color]")
+	print_rich("[color=cyan]==================================================[/color]")
+	
+	_report = "========================================\n"
+	_report += "# PROJECT PROBE ADVANCED REPORT (EditorScript)\n"
+	_report += "# Generated: %s\n" % Time.get_datetime_string_from_system()
+	_report += "# Godot Version: %s\n" % Engine.get_version_info().string
+	_report += "# OS: %s\n" % OS.get_name()
+	_report += "========================================\n\n"
+
+	# 1. オートロード (Singletons)
+	_report += "## 1. AUTOLOADS (SINGLETONS)\n"
+	_report += _get_autoloads_info() + "\n\n"
+
+	# 2. project.godot 設定
+	_report += "## 2. PROJECT CONFIGURATION (project.godot)\n"
+	_report += "```ini\n"
+	_report += _read_file_text("res://project.godot") + "\n"
+	_report += "```\n\n"
+
+	# 3. エディタ上のアクティブシーン構造
+	_report += "## 3. ACTIVE SCENE HIERARCHY (Editor Open Scene)\n"
+	_report += "```text\n"
+	var edited_root = get_editor_interface().get_edited_scene_root()
+	if edited_root:
+		_report += _scan_scene_tree(edited_root, 0)
+	else:
+		_report += "(No scene currently opened in editor)\n"
+	_report += "```\n\n"
+
+	# 4. 全ソースコード＆シーン構造
+	_report += "## 4. LOCAL FILE SYSTEM & CODES\n"
+	_report += _scan_local_files("res://") + "\n"
+
+	# クリップボード＆ファイル保存
+	_finish_and_copy_to_clipboard()
+
+func _get_autoloads_info() -> String:
+	var out = ""
+	for prop in ProjectSettings.get_property_list():
+		if prop.name.begins_with("autoload/"):
+			var name = prop.name.get_slice("/", 1)
+			var path = ProjectSettings.get_setting(prop.name)
+			out += "- %s: %s\n" % [name, path]
+	return out if out != "" else "No Autoloads registered.\n"
+
+func _scan_scene_tree(node: Node, level: int) -> String:
+	var indent = "  ".repeat(level)
+	var script_name = node.get_script().get_path().get_file() if node.get_script() else "No Script"
+	var unique = "[%]" if node.unique_name_in_owner else "   "
+	var out = "%s%s- %s (%s) [Script: %s]\n" % [indent, unique, node.name, node.get_class(), script_name]
+	
+	if node is Line2D:
+		out += "%s       [Line2D] Points: %d, Width: %.1f, Color: %s\n" % [indent, node.points.size(), node.width, str(node.default_color)]
+	elif node is Label:
+		out += "%s       [Label] Text: \"%s\"\n" % [indent, node.text.left(30).replace("\n", " ")]
+	elif node is Control:
+		out += "%s       [Control] Size: %s, Position: %s, Anchor: (%d,%d,%d,%d)\n" % [indent, str(node.size), str(node.position), node.anchor_left, node.anchor_top, node.anchor_right, node.anchor_bottom]
+
+	for child in node.get_children():
+		out += _scan_scene_tree(child, level + 1)
+	return out
+
+func _scan_local_files(path: String) -> String:
+	var out = ""
+	var dir = DirAccess.open(path)
+	if not dir:
+		return out
+	
+	dir.list_dir_begin()
+	var item = dir.get_next()
+	while item != "":
+		if item.begins_with("."):
+			item = dir.get_next()
+			continue
+			
+		var full_path = path + item
+		if dir.current_is_dir():
+			if not item in EXCLUDE_DIRS:
+				out += "\n[DIR] " + full_path + "/\n"
+				out += _scan_local_files(full_path + "/")
+		else:
+			var ext = item.get_extension()
+			if ext in TARGET_EXTENSIONS:
+				out += "  [File] " + item
+				if ext in TARGET_EXTENSIONS:
+					if item != "project_probe.gd":
+						var content = _read_file_text(full_path)
+						# 大容量JSONはサイズのみ出力してコンテキスト圧迫を防止
+						if ext == "json" and content.length() > 50000:
+							out += " (%d bytes - Large JSON Snippet)\n" % content.length()
+							out += "  |-- (Large JSON data omitted for token optimization) --\n"
+						else:
+							out += " (%d bytes)\n" % content.length()
+							out += "  |-- CONTENT START: " + full_path + " --\n"
+							out += content.strip_edges() + "\n"
+							out += "  |-- CONTENT END --------------------\n"
+					else:
+						out += " (Skipped self code)\n"
+				else:
+					out += "\n"
+		item = dir.get_next()
+	return out
+
+func _read_file_text(path: String) -> String:
+	if not FileAccess.file_exists(path): return "(File not found: %s)" % path
+	var f = FileAccess.open(path, FileAccess.READ)
+	var text = f.get_as_text()
+	f.close()
+	return text
+
+func _finish_and_copy_to_clipboard() -> void:
+	_report += "========================================\n"
+	_report += "# END OF PROBE REPORT\n"
+	_report += "========================================\n"
+	
+	DisplayServer.clipboard_set(_report)
+	var file = FileAccess.open(OUTPUT_FILE, FileAccess.WRITE)
+	if file:
+		file.store_string(_report)
+		file.close()
+	
+	print_rich("[color=green]==================================================[/color]")
+	print_rich("[color=green]  ★ プロジェクト全ソースコード完全スキャン完了！[/color]")
+	print_rich("[color=yellow]  [OK] クリップボードに全コピー完了！ (そのまま AI へ Ctrl+V できます)[/color]")
+	print_rich("[color=green]==================================================[/color]")
+  |-- CONTENT END --------------------
+
+[DIR] res://scenes/
+
+[DIR] res://scenes/characters/
+
+[DIR] res://scenes/environments/
+  [File] lab_room.tscn (248 bytes)
+  |-- CONTENT START: res://scenes/environments/lab_room.tscn --
+[gd_scene format=3 uid="uid://ct2w0l2ajftqf"]
+
+[ext_resource type="PackedScene" uid="uid://5qvvnqpl2ofo" path="res://assets/models/environments/lab_room.glb" id="1_e6qkk"]
+
+[node name="lab_room" unique_id=979434653 instance=ExtResource("1_e6qkk")]
+  |-- CONTENT END --------------------
+
+[DIR] res://scenes/smart_objects/
+
+[DIR] res://scenes/ui/
+
+[DIR] res://scripts/
+
+[DIR] res://scripts/autoload/
+
+[DIR] res://scripts/npc/
+
+[DIR] res://scripts/smart_objects/
+
+[DIR] res://scripts/utils/
+
+[DIR] res://shaders/
+  [File] toon_base.gdshader (1238 bytes)
+  |-- CONTENT START: res://shaders/toon_base.gdshader --
+shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back;
+
+// Project Settings (Shader Globals) から参照される環境影色
+global uniform vec4 global_shadow_tint : source_color = vec4(0.65, 0.72, 0.88, 1.0);
+
+uniform vec4 base_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform sampler2D main_texture : source_color, filter_nearest_mipmap;
+
+// 影の境界位置としきい値のぼかし幅
+uniform float shadow_threshold : hint_range(0.0, 1.0) = 0.45;
+uniform float shadow_softness : hint_range(0.001, 0.1) = 0.02;
+
+void fragment() {
+    vec4 tex = texture(main_texture, UV);
+    ALBEDO = base_color.rgb * tex.rgb;
+}
+
+void light() {
+    // 1. 光の向きと法線の内積（ランバート反射）
+    float NdotL = dot(NORMAL, LIGHT);
+
+    // 2. ATTENUATION（影情報）と NdotL を一体化
+    float light_intensity = clamp(NdotL, 0.0, 1.0) * ATTENUATION;
+
+    // 3. パキッとしたトゥーン境界（ハードエッジ）の判定
+    float toon_factor = smoothstep(
+        shadow_threshold - shadow_softness, 
+        shadow_threshold + shadow_softness, 
+        light_intensity
+    );
+
+    // 4. 光が当たる部分と、環境影色を合成
+    // ※Godot 4では LIGHT_COLOR にライトの強さ(Energy)が自動計算されています
+    vec3 lit_color = LIGHT_COLOR;
+    vec3 shade_color = global_shadow_tint.rgb;
+
+    // 固有色にライティングを適用
+    DIFFUSE_LIGHT += ALBEDO * mix(shade_color, lit_color, toon_factor);
+}
+  |-- CONTENT END --------------------
+
+========================================
+# END OF PROBE REPORT
+========================================
