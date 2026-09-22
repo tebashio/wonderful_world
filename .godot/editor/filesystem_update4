@@ -1,5 +1,0 @@
-res://scenes/environments/lab_room.tscn
-res://shaders/toon_base.gdshader
-res://shaders/glare_shell.gdshader
-res://shaders/toon_emit.gdshader
-res://materials/environments/mat_emission.tres

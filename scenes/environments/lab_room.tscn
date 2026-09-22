@@ -2,6 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://5qvvnqpl2ofo" path="res://assets/models/environments/lab_room.glb" id="1_e6qkk"]
 
+[sub_resource type="Environment" id="Environment_e6qkk"]
+background_mode = 1
+background_color = Color(0.15622148, 0.23207748, 0.29823536, 1)
+tonemap_mode = 3
+glow_enabled = true
+glow_levels/2 = 0.0
+glow_levels/3 = 3.07
+glow_levels/4 = 3.48
+glow_intensity = 2.52
+glow_strength = 1.1
+
 [node name="LabRoom" type="Node3D" unique_id=1677231532]
 
 [node name="lab_room" parent="." unique_id=1731174843 instance=ExtResource("1_e6qkk")]
@@ -9,8 +20,10 @@
 [node name="pc_monitor_screen" parent="lab_room/pc_monitor_body" parent_id_path=PackedInt32Array(1731174843, 1255493011) index="0" unique_id=1271835159]
 instance_shader_parameters/custom_glare_color = Color(0.4, 0.75, 1, 0.6)
 instance_shader_parameters/expand_size = 0.138000006555
+instance_shader_parameters/flicker_speed = 3.0
 instance_shader_parameters/flip_normal = false
-instance_shader_parameters/randomness = 0.3
+instance_shader_parameters/glare_enabled = false
+instance_shader_parameters/randomness = 0.28800001368
 instance_shader_parameters/use_flat_mesh = false
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2027218002]
@@ -23,5 +36,8 @@ transform = Transform3D(0.59902364, 0.40036568, -0.69345367, 0, 0.8660254, 0.5, 
 light_color = Color(0.54901963, 0.78039217, 0.9607843, 1)
 shadow_enabled = true
 shadow_blur = 0.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=621384322]
+environment = SubResource("Environment_e6qkk")
 
 [editable path="lab_room"]

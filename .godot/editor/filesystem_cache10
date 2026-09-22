@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1790060666
+::res://::1790071187
 create_project_structure.gd::GDScript::4586827085731755437::1789979803::0::1::::<>EditorScript<><>0<>1<><>::
 icon.svg::CompressedTexture2D::871158583428448317::1789978793::1789978797::1::::<><><>0<>0<>84ddcda5cdacc2499c470819fa958d9b<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 PROJECT_PROBE_DUMP.txt::TextFile::-1::1790032615::0::1::::<><><>0<>0<><>::
@@ -20,13 +20,13 @@ color_pallet_32x_001.png::CompressedTexture2D::6904290010024001503::1790039051::
 ::res://assets/textures/ui/::1789978996
 ::res://materials/::1789978996
 ::res://materials/characters/::1789978996
-::res://materials/environments/::1790060156
-mat_emission.tres::ShaderMaterial::2834504870630827585::1790060156::0::1::::<><><>0<>0<><>::uid://btd2nlkp3lv5j::::res://shaders/glare_shell.gdshader<>uid://dhmrmm4hreths::::res://shaders/toon_emit.gdshader<>uid://c5mqwa1usgwyh::::res://assets/textures/palettes/color_pallet_32x_001.png
+::res://materials/environments/::1790060673
+mat_emission.tres::ShaderMaterial::2834504870630827585::1790060673::0::1::::<><><>0<>0<><>::uid://btd2nlkp3lv5j::::res://shaders/glare_shell.gdshader<>uid://dhmrmm4hreths::::res://shaders/toon_emit.gdshader<>uid://c5mqwa1usgwyh::::res://assets/textures/palettes/color_pallet_32x_001.png
 mat_palette.tres::ShaderMaterial::1135663919453854982::1790028498::0::1::::<><><>0<>0<><>::uid://bdtegafnog7ww::::res://shaders/toon_base.gdshader<>uid://c5mqwa1usgwyh::::res://assets/textures/palettes/color_pallet_32x_001.png
 ::res://scenes/::1789978996
 ::res://scenes/characters/::1789978996
-::res://scenes/environments/::1790060330
-lab_room.tscn::PackedScene::6163548634035732841::1790060330::0::1::::<><><>0<>0<><>::uid://5qvvnqpl2ofo::::res://assets/models/environments/lab_room.glb
+::res://scenes/environments/::1790068344
+lab_room.tscn::PackedScene::6163548634035732841::1790068344::0::1::::<><><>0<>0<><>::uid://5qvvnqpl2ofo::::res://assets/models/environments/lab_room.glb
 ::res://scenes/smart_objects/::1789978996
 ::res://scenes/ui/::1789978996
 ::res://scripts/::1789978996
@@ -34,7 +34,7 @@ lab_room.tscn::PackedScene::6163548634035732841::1790060330::0::1::::<><><>0<>0<
 ::res://scripts/npc/::1789978996
 ::res://scripts/smart_objects/::1789978996
 ::res://scripts/utils/::1789978996
-::res://shaders/::1790060156
-glare_shell.gdshader::Shader::3727865014127656017::1790060156::0::1::::<><><>0<>0<><>::
-toon_base.gdshader::Shader::2636463983002494066::1790060156::0::1::::<><><>0<>0<><>::
-toon_emit.gdshader::Shader::7676410783418610716::1790060156::0::1::::<><><>0<>0<><>::
+::res://shaders/::1790060673
+glare_shell.gdshader::Shader::3727865014127656017::1790060673::0::1::::<><><>0<>0<><>::
+toon_base.gdshader::Shader::2636463983002494066::1790060673::0::1::::<><><>0<>0<><>::
+toon_emit.gdshader::Shader::7676410783418610716::1790060673::0::1::::<><><>0<>0<><>::

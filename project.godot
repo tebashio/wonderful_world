@@ -34,5 +34,5 @@ renderer/rendering_method="mobile"
 
 global_shadow_tint={
 "type": "color",
-"value": Color(0.40713218, 0.5982871, 1, 1)
+"value": Color(0.08336263, 0.34738898, 0.9999655, 1)
 }
