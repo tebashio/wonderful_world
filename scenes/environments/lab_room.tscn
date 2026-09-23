@@ -5,29 +5,28 @@
 [sub_resource type="Environment" id="Environment_e6qkk"]
 background_mode = 1
 background_color = Color(0.15622148, 0.23207748, 0.29823536, 1)
-tonemap_mode = 3
-glow_enabled = true
+tonemap_mode = 2
 glow_levels/2 = 0.0
-glow_levels/3 = 3.07
-glow_levels/4 = 3.48
-glow_intensity = 2.52
-glow_strength = 1.1
+glow_levels/3 = 2.87
+glow_levels/4 = 2.77
+glow_intensity = 1.9
+glow_strength = 1.12
 
 [node name="LabRoom" type="Node3D" unique_id=1677231532]
 
-[node name="lab_room" parent="." unique_id=1731174843 instance=ExtResource("1_e6qkk")]
+[node name="lab_room" parent="." unique_id=1631301575 instance=ExtResource("1_e6qkk")]
 
-[node name="pc_monitor_screen" parent="lab_room/pc_monitor_body" parent_id_path=PackedInt32Array(1731174843, 1255493011) index="0" unique_id=1271835159]
-instance_shader_parameters/custom_glare_color = Color(0.4, 0.75, 1, 0.6)
-instance_shader_parameters/expand_size = 0.138000006555
-instance_shader_parameters/flicker_speed = 3.0
-instance_shader_parameters/flip_normal = false
-instance_shader_parameters/glare_enabled = false
-instance_shader_parameters/randomness = 0.28800001368
+[node name="mug_cup_dr" parent="lab_room" index="6" unique_id=178608906]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -4.5699553, 1.4010793, 0.7156803)
+
+[node name="pc_monitor_b_screen" parent="lab_room/pc_monitor_b_body" parent_id_path=PackedInt32Array(1631301575, 2081049855) index="0" unique_id=282269778]
+instance_shader_parameters/depth_offset = -0.02899999811762001
+instance_shader_parameters/expand_size = 0.12400000589
+instance_shader_parameters/flip_normal = true
 instance_shader_parameters/use_flat_mesh = false
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2027218002]
-transform = Transform3D(0.87435186, -0.056036346, 0.48204643, -0.0070357313, 0.9917429, 0.12804857, -0.4852415, -0.11535106, 0.8667381, -1.009415, 2.6695771, 5.9259834)
+transform = Transform3D(0.87435186, -0.056036346, 0.48204643, -0.0070357313, 0.9917429, 0.12804857, -0.4852415, -0.11535106, 0.8667381, -2.2844524, 2.330882, 3.633417)
 current = true
 fov = 45.0
 
