@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ct2w0l2ajftqf"]
 
 [ext_resource type="PackedScene" uid="uid://5qvvnqpl2ofo" path="res://assets/models/environments/lab_room.glb" id="1_e6qkk"]
+[ext_resource type="Script" uid="uid://v68sdpgd5nqi" path="res://scripts/utils/instance_shader_controller.gd" id="2_8bknk"]
 
 [sub_resource type="Environment" id="Environment_e6qkk"]
 background_mode = 1
@@ -14,16 +15,36 @@ glow_strength = 1.12
 
 [node name="LabRoom" type="Node3D" unique_id=1677231532]
 
-[node name="lab_room" parent="." unique_id=1631301575 instance=ExtResource("1_e6qkk")]
+[node name="lab_room" parent="." unique_id=350917228 instance=ExtResource("1_e6qkk")]
 
-[node name="mug_cup_dr" parent="lab_room" index="6" unique_id=178608906]
+[node name="light_sphere" parent="lab_room" index="5" unique_id=483243641]
+instance_shader_parameters/custom_glare_color = Color(1, 0.43630788, 0.55260557, 0.6)
+instance_shader_parameters/flicker_speed = 0.0
+instance_shader_parameters/max_expand = Vector3(0.052, 0.052, 0.04)
+instance_shader_parameters/min_expand = Vector3(0.068, 0.01, 0.01)
+instance_shader_parameters/randomness = 0.0
+script = ExtResource("2_8bknk")
+custom_glare_color = Color(1, 0.43630788, 0.55260557, 0.6)
+max_expand = Vector3(0.052, 0.052, 0.04)
+min_expand = Vector3(0.068, 0.01, 0.01)
+flicker_speed = 0.0
+randomness = 0.0
+
+[node name="mug_cup_dr" parent="lab_room" index="6" unique_id=1002600069]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -4.5699553, 1.4010793, 0.7156803)
 
-[node name="pc_monitor_b_screen" parent="lab_room/pc_monitor_b_body" parent_id_path=PackedInt32Array(1631301575, 2081049855) index="0" unique_id=282269778]
-instance_shader_parameters/depth_offset = -0.02899999811762001
-instance_shader_parameters/expand_size = 0.12400000589
-instance_shader_parameters/flip_normal = false
-instance_shader_parameters/use_flat_mesh = false
+[node name="pc_monitor_b_screen" parent="lab_room/pc_monitor_b_body" parent_id_path=PackedInt32Array(350917228, 172940117) index="0" unique_id=516832958]
+instance_shader_parameters/max_alpha = 0.26
+instance_shader_parameters/max_expand = Vector3(0, 0.18, 0)
+instance_shader_parameters/min_alpha = 0.11
+instance_shader_parameters/min_expand = Vector3(0, 0.16, 0)
+instance_shader_parameters/offset = Vector3(0, 0.071, 0)
+script = ExtResource("2_8bknk")
+offset = Vector3(0, 0.071, 0)
+max_expand = Vector3(0, 0.18, 0)
+min_expand = Vector3(0, 0.16, 0)
+max_alpha = 0.26
+min_alpha = 0.11
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2027218002]
 transform = Transform3D(0.87435186, -0.056036346, 0.48204643, -0.0070357313, 0.9917429, 0.12804857, -0.4852415, -0.11535106, 0.8667381, -2.2844524, 2.330882, 3.633417)

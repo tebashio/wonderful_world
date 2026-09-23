@@ -29,6 +29,7 @@ window/size/window_height_override=960
 
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
+anti_aliasing/quality/msaa_3d=1
 
 [shader_globals]
 
