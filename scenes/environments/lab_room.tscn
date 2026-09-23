@@ -22,7 +22,7 @@ transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -4.5
 [node name="pc_monitor_b_screen" parent="lab_room/pc_monitor_b_body" parent_id_path=PackedInt32Array(1631301575, 2081049855) index="0" unique_id=282269778]
 instance_shader_parameters/depth_offset = -0.02899999811762001
 instance_shader_parameters/expand_size = 0.12400000589
-instance_shader_parameters/flip_normal = true
+instance_shader_parameters/flip_normal = false
 instance_shader_parameters/use_flat_mesh = false
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2027218002]
