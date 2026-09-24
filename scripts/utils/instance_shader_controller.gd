@@ -3,7 +3,7 @@ class_name InstanceShaderController
 extends MeshInstance3D
 
 ## ===================================================================
-##  Instance Shader Controller (安定版・素直なパラメータ管理)
+##  Instance Shader Controller (減衰・フレネル対応版)
 ## ===================================================================
 
 @export_group("Glare & Glow Shell")
@@ -47,6 +47,27 @@ extends MeshInstance3D
 		min_alpha = value
 		_update_shader_param("min_alpha", min_alpha)
 
+@export_group("Attenuation & Fade")
+@export var fade_distance_positive: Vector3 = Vector3.ZERO:
+	set(value):
+		fade_distance_positive = value
+		_update_shader_param("fade_distance_positive", fade_distance_positive)
+
+@export var fade_distance_negative: Vector3 = Vector3.ZERO:
+	set(value):
+		fade_distance_negative = value
+		_update_shader_param("fade_distance_negative", fade_distance_negative)
+
+@export_range(0.0, 10.0, 0.1) var fresnel_power: float = 0.0:
+	set(value):
+		fresnel_power = value
+		_update_shader_param("fresnel_power", fresnel_power)
+
+@export var fresnel_invert: bool = false:
+	set(value):
+		fresnel_invert = value
+		_update_shader_param("fresnel_invert", fresnel_invert)
+
 @export_group("Flicker Animation")
 @export_range(0.0, 20.0, 0.1) var flicker_speed: float = 3.0:
 	set(value):
@@ -72,6 +93,10 @@ func apply_all_parameters() -> void:
 	_update_shader_param("min_expand", min_expand)
 	_update_shader_param("max_alpha", max_alpha)
 	_update_shader_param("min_alpha", min_alpha)
+	_update_shader_param("fade_distance_positive", fade_distance_positive)
+	_update_shader_param("fade_distance_negative", fade_distance_negative)
+	_update_shader_param("fresnel_power", fresnel_power)
+	_update_shader_param("fresnel_invert", fresnel_invert)
 	_update_shader_param("flicker_speed", flicker_speed)
 	_update_shader_param("randomness", randomness)
 
