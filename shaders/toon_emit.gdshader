@@ -11,21 +11,38 @@ uniform sampler2D main_texture : source_color, filter_nearest_mipmap;
 uniform float shadow_threshold : hint_range(0.0, 1.0) = 0.45;
 uniform float shadow_softness : hint_range(0.001, 0.1) = 0.02;
 
-// 発光（Emission）制御
-uniform float emission_energy : hint_range(0.0, 5.0) = 1.8; // HDR領域（1.0超でGlow対象）
-uniform float flicker_speed = 3.0;
+// ===================================================================
+//  共通インスタンスパラメータ（Next Pass と完全同期）
+// ===================================================================
+instance uniform float emission_energy : hint_range(0.0, 10.0) = 1.8;
+instance uniform vec4 custom_glare_color : source_color = vec4(0.3, 0.7, 1.0, 0.6);
+instance uniform bool glare_enabled = true;
+instance uniform bool flip_normal = false;
+instance uniform vec3 offset = vec3(0.0, 0.0, 0.0);
+instance uniform vec3 max_expand = vec3(0.04, 0.04, 0.04);
+instance uniform vec3 min_expand = vec3(0.01, 0.01, 0.01);
+instance uniform float max_alpha : hint_range(0.0, 1.0) = 0.8;
+instance uniform float min_alpha : hint_range(0.0, 1.0) = 0.2;
+instance uniform vec3 fade_distance_positive = vec3(0.0, 0.0, 0.0);
+instance uniform vec3 fade_distance_negative = vec3(0.0, 0.0, 0.0);
+instance uniform float fresnel_power : hint_range(0.0, 10.0) = 0.0;
+instance uniform bool fresnel_invert = false;
+instance uniform float flicker_speed : hint_range(0.0, 20.0) = 3.0;
+instance uniform float randomness : hint_range(0.0, 1.0) = 0.2;
+
+// 発光明滅の最小・最大比率
 uniform float min_flicker : hint_range(0.0, 1.0) = 0.85;
 uniform float max_flicker : hint_range(0.0, 1.0) = 1.0;
-uniform float randomness : hint_range(0.0, 1.0) = 0.2;
 
 float hash(float p) {
     return fract(sin(p * 127.1) * 43758.5453123);
 }
 
 float get_flicker(float time, vec3 world_pos, float speed, float min_val, float max_val, float randomness_val) {
-    float offset = dot(world_pos, vec3(12.9898, 78.233, 45.164));
-    float t = time * speed + offset;
-    float wave = (sin(t) * 0.5 + 0.5) * 0.7 + (sin(t * 2.3 + offset) * 0.5 + 0.5) * 0.3;
+    if (speed <= 0.001) return 1.0;
+    float offset_val = dot(world_pos, vec3(12.9898, 78.233, 45.164));
+    float t = time * speed + offset_val;
+    float wave = (sin(t) * 0.5 + 0.5) * 0.7 + (sin(t * 2.3 + offset_val) * 0.5 + 0.5) * 0.3;
     float noise = hash(floor(t * 4.0));
     float mix_val = mix(wave, noise, randomness_val);
     return mix(min_val, max_val, mix_val);
@@ -36,7 +53,7 @@ void fragment() {
     vec3 col = base_color.rgb * tex.rgb;
     ALBEDO = col;
     
-    // ワールド座標ベースの微細な明滅発光（HDR）
+    // ワールド座標ベースの微細な明滅発光（HDR領域）
     float f = get_flicker(TIME, NODE_POSITION_WORLD, flicker_speed, min_flicker, max_flicker, randomness);
     EMISSION = col * (emission_energy * f);
 }

@@ -15,25 +15,27 @@ glow_strength = 1.12
 
 [node name="LabRoom" type="Node3D" unique_id=1677231532]
 
-[node name="lab_room" parent="." unique_id=1680072234 instance=ExtResource("1_e6qkk")]
+[node name="lab_room" parent="." unique_id=1170688066 instance=ExtResource("1_e6qkk")]
 
-[node name="light_sphere" parent="lab_room" index="5" unique_id=379462560]
-instance_shader_parameters/custom_glare_color = Color(1, 0.47500002, 0.25, 0.101960786)
+[node name="light_sphere" parent="lab_room" index="5" unique_id=2133164546]
+instance_shader_parameters/custom_glare_color = Color(1, 0.45888662, 0.66320264, 0.6)
 instance_shader_parameters/flicker_speed = 0.0
+instance_shader_parameters/max_alpha = 0.25
 instance_shader_parameters/max_expand = Vector3(0.052, 0.052, 0.04)
 instance_shader_parameters/min_expand = Vector3(0.068, 0.01, 0.01)
 instance_shader_parameters/randomness = 0.0
 script = ExtResource("2_8bknk")
-custom_glare_color = Color(1, 0.47500002, 0.25, 0.101960786)
+custom_glare_color = Color(1, 0.45888662, 0.66320264, 0.6)
 max_expand = Vector3(0.052, 0.052, 0.04)
 min_expand = Vector3(0.068, 0.01, 0.01)
+max_alpha = 0.25
 flicker_speed = 0.0
 randomness = 0.0
 
-[node name="pc_monitor_b_body" parent="lab_room" index="8" unique_id=467312900]
+[node name="pc_monitor_b_body" parent="lab_room" index="8" unique_id=1918840349]
 transform = Transform3D(0, 1, 0, 0, 0, -1, -1, 0, 0, -5.5521207, 1.7869067, 0.080940485)
 
-[node name="pc_monitor_b_screen" parent="lab_room/pc_monitor_b_body" index="0" unique_id=391322709]
+[node name="pc_monitor_b_screen" parent="lab_room/pc_monitor_b_body" index="0" unique_id=2137794221]
 instance_shader_parameters/fade_distance_positive = Vector3(0, 0.165, 0)
 instance_shader_parameters/max_alpha = 1.0
 instance_shader_parameters/max_expand = Vector3(0, 0.18, 0)

@@ -3,8 +3,14 @@ class_name InstanceShaderController
 extends MeshInstance3D
 
 ## ===================================================================
-##  Instance Shader Controller (減衰・フレネル対応版)
+##  Instance Shader Controller (発光強度・減衰・フレネル完全対応版)
 ## ===================================================================
+
+@export_group("Base Emission")
+@export_range(0.0, 10.0, 0.1) var emission_energy: float = 1.8:
+	set(value):
+		emission_energy = value
+		_update_shader_param("emission_energy", emission_energy)
 
 @export_group("Glare & Glow Shell")
 @export var custom_glare_color: Color = Color(0.3, 0.7, 1.0, 0.6):
@@ -85,6 +91,7 @@ func _ready() -> void:
 
 
 func apply_all_parameters() -> void:
+	_update_shader_param("emission_energy", emission_energy)
 	_update_shader_param("custom_glare_color", custom_glare_color)
 	_update_shader_param("glare_enabled", glare_enabled)
 	_update_shader_param("flip_normal", flip_normal)
